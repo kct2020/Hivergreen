@@ -16,8 +16,6 @@ import cn from "classnames";
 import { CustomAvatar, Logo, Text } from "@/components";
 import { User } from "@/interfaces";
 
-import { RoleTag } from "./components";
-
 import styles from "./settings.module.css";
 
 export const SettingsPage = () => {
@@ -190,28 +188,6 @@ const UsersTable = () => {
                             <Input placeholder="Search title" />
                         </FilterDropdown>
                     )}
-                />
-                <Table.Column<User>
-                    dataIndex="role"
-                    title="Role"
-                    defaultFilteredValue={getDefaultFilter(
-                        "role",
-                        filters,
-                        "in",
-                    )}
-                    filterDropdown={(props) => (
-                        <FilterDropdown {...props}>
-                            <Select
-                                style={{ width: "200px" }}
-                                mode="multiple"
-                                placeholder="Select Stage"
-                                options={roleOptions}
-                            />
-                        </FilterDropdown>
-                    )}
-                    render={(_, record) => {
-                        return <RoleTag role={record.role} />;
-                    }}
                 />
             </Table>
         </Card>
