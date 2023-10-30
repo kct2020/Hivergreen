@@ -113,7 +113,6 @@ const App: React.FC = () => {
                                             path="*"
                                             element={<ErrorComponent />}
                                         />
-                                    </Route>
                                 </Routes>
                                 <DocumentTitleHandler />
                             </Refine>
