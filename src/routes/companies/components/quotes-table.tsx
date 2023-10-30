@@ -17,8 +17,8 @@ import {
 } from "@ant-design/icons";
 import { Button, Card, Input, Select, Space, Table } from "antd";
 
-import { Participants, QuoteStatusTag, Text } from "@/components";
-import { Quote, QuoteStatus } from "@/interfaces";
+import { Participants, Text } from "@/components";
+import { Quote } from "@/interfaces";
 import { currencyNumber } from "@/utilities";
 
 type Props = {
@@ -174,25 +174,6 @@ export const CompanyQuotesTable: FC<Props> = ({ style }) => {
                         }}
                     />
                     <Table.Column<Quote>
-                        title="Stage"
-                        dataIndex="status"
-                        render={(_, record) => {
-                            if (!record.status) return null;
-
-                            return <QuoteStatusTag status={record.status} />;
-                        }}
-                        filterDropdown={(props) => (
-                            <FilterDropdown {...props}>
-                                <Select
-                                    style={{ width: "200px" }}
-                                    mode="multiple"
-                                    placeholder="Select Stage"
-                                    options={statusOptions}
-                                ></Select>
-                            </FilterDropdown>
-                        )}
-                    />
-                    <Table.Column<Quote>
                         dataIndex={["salesOwner", "id"]}
                         title="Participants"
                         render={(_, record) => {
@@ -235,18 +216,3 @@ export const CompanyQuotesTable: FC<Props> = ({ style }) => {
         </Card>
     );
 };
-
-const statusOptions: { label: string; value: QuoteStatus }[] = [
-    {
-        label: "Draft",
-        value: "DRAFT",
-    },
-    {
-        label: "Sent",
-        value: "SENT",
-    },
-    {
-        label: "Accepted",
-        value: "ACCEPTED",
-    },
-];

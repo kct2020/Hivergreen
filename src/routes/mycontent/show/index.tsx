@@ -21,7 +21,7 @@ import styles from "./index.module.css";
 
 const PdfExport = lazy(() => import("../components/pdf-export"));
 
-export const QuotesShowPage = () => {
+export const MyContentPage = () => {
     const [editModalVisible, setEditModalVisible] = useState(false);
 
     const params = useParams<{ id: string }>();
@@ -45,8 +45,8 @@ export const QuotesShowPage = () => {
     return (
         <>
             <div className={styles.container}>
-                <Link to="/quotes">
-                    <Button icon={<LeftOutlined />}>Quotes</Button>
+                <Link to="/mycontent">
+                    <Button icon={<LeftOutlined />}>MyContent</Button>
                 </Link>
                 <div className={styles.divider} />
                 <div className={styles.title}>

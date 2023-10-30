@@ -1,8 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 
 import {
-    DeleteButton,
-    EditButton,
+    ExportButton,
     FilterDropdown,
     getDefaultSortOrder,
     List,
@@ -22,28 +21,12 @@ import {
     ListTitleButton,
     PaginationTotal,
     Participants,
-    QuoteStatusTag,
     Text,
 } from "@/components";
-import { Quote, QuoteStatus } from "@/interfaces";
+import { Quote } from "@/interfaces";
 import { currencyNumber } from "@/utilities";
 
-const statusOptions: { label: string; value: QuoteStatus }[] = [
-    {
-        label: "Draft",
-        value: "DRAFT",
-    },
-    {
-        label: "Sent",
-        value: "SENT",
-    },
-    {
-        label: "Accepted",
-        value: "ACCEPTED",
-    },
-];
-
-export const QuotesListPage: FC<PropsWithChildren> = ({ children }) => {
+export const MyContentListPage: FC<PropsWithChildren> = ({ children }) => {
     const screens = Grid.useBreakpoint();
 
     const { tableProps, searchFormProps, filters, sorters, tableQueryResult } =
@@ -241,28 +224,6 @@ export const QuotesListPage: FC<PropsWithChildren> = ({ children }) => {
                         }}
                     />
                     <Table.Column<Quote>
-                        dataIndex="status"
-                        title="Stage"
-                        defaultFilteredValue={getDefaultFilter(
-                            "status",
-                            filters,
-                            "in",
-                        )}
-                        filterDropdown={(props) => (
-                            <FilterDropdown {...props}>
-                                <Select
-                                    style={{ width: "200px" }}
-                                    mode="multiple"
-                                    placeholder="Select Stage"
-                                    options={statusOptions}
-                                ></Select>
-                            </FilterDropdown>
-                        )}
-                        render={(value) => {
-                            return <QuoteStatusTag status={value} />;
-                        }}
-                    />
-                    <Table.Column<Quote>
                         dataIndex={["salesOwner", "id"]}
                         title="Participants"
                         filterDropdown={(props) => {
@@ -312,15 +273,7 @@ export const QuotesListPage: FC<PropsWithChildren> = ({ children }) => {
                                             backgroundColor: "transparent",
                                         }}
                                     />
-                                    <EditButton
-                                        hideText
-                                        size="small"
-                                        recordItemId={record.id}
-                                        style={{
-                                            backgroundColor: "transparent",
-                                        }}
-                                    />
-                                    <DeleteButton
+                                    <ExportButton
                                         hideText
                                         size="small"
                                         recordItemId={record.id}
