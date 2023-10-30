@@ -276,7 +276,6 @@ export const MyContentListPage: FC<PropsWithChildren> = ({ children }) => {
                                     <ExportButton
                                         hideText
                                         size="small"
-                                        recordItemId={record.id}
                                         style={{
                                             backgroundColor: "transparent",
                                         }}

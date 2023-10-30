@@ -20,7 +20,6 @@ import {
     authProvider,
     dataProvider,
     indexName,
-    liveProvider,
     searchClient,
 } from "@/providers";
 
@@ -37,7 +36,6 @@ import {
     MyContentListPage,
     MyContentShowPage,
 } from "./routes/mycontent";
-import { UpdatePasswordPage } from "./routes/update-password";
 
 import "@refinedev/antd/dist/reset.css";
 import "./styles/antd.css";
@@ -53,7 +51,6 @@ const App: React.FC = () => {
                         <DevtoolsProvider>
                             <Refine
                                 dataProvider={dataProvider}
-                                liveProvider={liveProvider}
                                 routerProvider={routerProvider}
                                 resources={resources}
                                 notificationProvider={useNotificationProvider}
@@ -90,15 +87,15 @@ const App: React.FC = () => {
                                         <Route
                                             path="/mycontent"
                                             element={
-                                                <MyContentPage>
+                                                <MyContentListPage>
                                                     <Outlet />
-                                                </MyContentPage>
+                                                </MyContentListPage>
                                             }
                                         >
                                         </Route>
                                         <Route
                                             path="/mycontent/show/:id"
-                                            element={<QMyContentPage />}
+                                            element={<MyContentShowPage />}
                                         />
                                         <Route
                                             path="/administration"

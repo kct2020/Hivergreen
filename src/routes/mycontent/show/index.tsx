@@ -21,7 +21,7 @@ import styles from "./index.module.css";
 
 const PdfExport = lazy(() => import("../components/pdf-export"));
 
-export const MyContentPage = () => {
+export const MyContentShowPage = () => {
     const [editModalVisible, setEditModalVisible] = useState(false);
 
     const params = useParams<{ id: string }>();

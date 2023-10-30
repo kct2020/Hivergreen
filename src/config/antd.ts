@@ -33,9 +33,6 @@ export const themeConfig: ThemeConfig = {
         InputNumber: {
             colorBgContainer: "#fff",
         },
-        Calendar: {
-            colorBgContainer: "#FFFFFF",
-        },
         Radio: {
             colorBgContainer: "#fff",
         },

@@ -1,6 +1,5 @@
 import graphqlDataProvider, {
     GraphQLClient,
-    liveProvider as graphqlLiveProvider,
 } from "@refinedev/nestjs-query";
 
 import { createClient } from "graphql-ws";
@@ -45,5 +44,3 @@ export const client = new GraphQLClient(API_URL, {
 //});
 
 export const dataProvider = graphqlDataProvider(client);
-
-export const liveProvider = graphqlLiveProvider(wsClient);
